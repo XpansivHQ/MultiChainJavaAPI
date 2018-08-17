@@ -41,10 +41,10 @@ publishing {
     }
     repositories {
         maven {
-            url "s3://xpansivbuild/repo/snapshots"
-            credentials(AwsCredentials) {
-                accessKey project.properties['AWS_ACCESS_KEY_ID'] ?: System.getenv('AWS_ACCESS_KEY_ID')
-                secretKey project.properties['AWS_SECRET_ACCESS_KEY'] ?: System.getenv('AWS_SECRET_ACCESS_KEY')
+            url 'http://54.205.94.241:8081/repository/maven-snapshots/'
+            credentials {
+                username project.properties['NEXUS_USER'] ?: System.getenv('NEXUS_USER')
+                password project.properties['NEXUS_PASSWORD'] ?: System.getenv('NEXUS_PASSWORD')
             }
         }
     }
